@@ -1,39 +1,80 @@
 #include <stdio.h>
+#include<stdlib.h>
 // wap to store roll number and marks obtained by 4 students side by side in matrix;
 // find the sum of given matrix ;
+#define max 5
+ int top=-1;
+ int stack[max];
+ void push();
+ void pop();
+ void peek();
+ void display();
+
 void main()
 {
+       int choice ;
+       do{
+           printf("menu\n1.push\n2.pop\n3.peek\n4.display\n5.exit\n");
+           scanf("%d",&choice);
+           switch(choice){
+               case 1: push();
+                       break;
 
-     // ininsilize array
-     // int m1[2]-r[3]-c={ {6,80,5},{7,5,6} };
-     // int m2[4][4];
-     // int r,c;
-     // for(r=0;r<2;r++){
-     //     for(c=0;c<3;c++){
-     //         // printf("enter 1st matrix value :");
-     //         printf("%d\t",m1[r][c]);
-     //     }
-     //       printf("\n");
-     // }
-      int m1[3][3];
-      int r,c,sum=0;
-      for(r=0 ;r<3 ; r++){
-           for(c=0;c<3;c++){
-                 printf("enter 1st matrix value :");
-                 scanf("%d",&m1[r][c]);
-           }
-      }
+               case 2: pop();
+                       break;
+               
+               case 3: peek();
+                       break;
 
-      for(r=0;r<3 ;r++){
-           for(c=0;c<3;c++){
-                sum=sum+m1[r][c];
-                
+               case 4: display();
+                       break;
+
+               case 5: exit(0);
+                       break;
+
+               default : printf("invaild choice");
            }
-           
-      }
-      printf("%d",sum);
+       }while(1);
+    
 }
 
+void push(){
+     if(top==max-1){
+          printf("stack is overflow");
+
+     }
+     else {
+          printf("enter any no:");
+          scanf("%d",&stack[top]);
+          top++;
+     }
+  }
+
+void pop(){
+     if(top==-1){
+          printf("stcak is underflow");
+     }
+     else {
+          printf("item is deleted %d",stack[top]);
+          top--;
+     }
+}
+void peek(){
+     if(top==-1)
+     {
+          printf("stack is empty");
+     }
+     else{
+          printf("top elemeent is %d",stack[top]);
+     }
+}
+void display(){
+     int i;
+
+     for(i=top;i>=0;i--){
+          printf("%d",stack[top]);
+     }
+}
 
 // wap to find out max and min number :
 /*
